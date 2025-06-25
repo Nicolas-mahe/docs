@@ -40,7 +40,7 @@ on (Cloudflare dashboard)[https://dash.cloudflare.com/profile/api-tokens]
 
 `sudo chmod 600 /root/.secrets/certbot/cloudflare.ini`
 
-`sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /root/.secrets/certbot/cloudflare.ini -d <DNSNAME>`
+`sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /root/.secrets/certbot/cloudflare.ini -d <DNSNAME> -d *.<DNSNAME>`
 
 #### Renew managment
 add a crontab: `sudo crontab -e` and fill with : *0 2 \* \* \* certbot renew --quiet --dns-cloudflare --dns-cloudflare-credentials /root/.secrets/certbot/cloudflare.ini && gitlab-ctl hup nginx*
