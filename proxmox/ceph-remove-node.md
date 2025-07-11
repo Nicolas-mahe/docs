@@ -3,7 +3,7 @@ If 1 node crash without recovery option:
 
 **Delete from cluster** `ceph mon remove <NODE-NAME>`
 
-### In case of ceph storage
+## In case of ceph storage
 find the ceph osd.X name with :
 
 `ceph osd tree`:
@@ -25,4 +25,6 @@ Is missing part for the monitoring, do it from web interface:
 - go a on *Monitor* menu under *CEPH* section
 - In monitor, choose your obsolete node and click on *Destroy*
 
-And delete node ip from field *mon_host* in *'/etc/pve/ceph.conf'*
+Delete node ip from field *mon_host* in *'/etc/pve/ceph.conf'*
+
+Format ceph harddisk `ceph-volume lvm zap /dev/sdX --destroy`
