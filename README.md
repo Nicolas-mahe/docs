@@ -2,7 +2,9 @@
 Docs and tips for tool I'm using on ly homelab
 
 - Clouflare
-    - Cloudflared-tunnel
+    - cloudflared-tunnel
+- Crowdsec
+    - bouncer creation
 - Gitlab
     - install-gitlab
 - Proxmox
