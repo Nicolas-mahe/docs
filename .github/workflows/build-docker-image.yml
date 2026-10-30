@@ -77,3 +77,5 @@ jobs:
           file: ${{ inputs.dockerfile_path || 'packages/Dockerfile' }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
+          build-args: |
+                      PERSONAL_DOMAIN_NAME=${{ secrets.PERSONAL_DOMAIN_NAME }}
