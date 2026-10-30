@@ -1,5 +1,5 @@
 services:
-  docusaurus-tech:
+  docusaurus:
     restart: ${RESTART:-unless-stopped}
     image: ghcr.io/nicolas-mahe/docs:${DOCKER_TAG_DOCS:-main}
     container_name: ${COMPOSE_PROJECT_NAME:-docusaurus}
