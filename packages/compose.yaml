@@ -1,0 +1,10 @@
+services:
+  docusaurus-tech:
+    restart: unless-stopped
+    image: ghcr.io/Nicolas-mahe/docs:${DOCKER_TAG_DOCS_TECH:-main}
+    container_name: ${COMPOSE_PROJECT_NAME:-docusaurus}
+    hostname: ${COMPOSE_PROJECT_NAME:-docusaurus}
+    environment:
+      TZ: Europe/Paris
+    expose:
+      - 80

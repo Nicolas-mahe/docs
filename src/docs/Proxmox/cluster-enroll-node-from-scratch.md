@@ -1,4 +1,4 @@
-# Init a nodes from scrath
+# Init a nodes from scratch
 
 ## Install OS
 Boot drive 240GB as EXT4:

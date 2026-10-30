@@ -1,4 +1,4 @@
-# LCloudflare tunnel
+# Cloudflare tunnel
 
 ## Locally managed tunnel
 From [cloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/local-management/create-local-tunnel/)
@@ -10,7 +10,7 @@ On other computer install clouflared tunnel, create a cert.pem for the domain na
 ### Tunnel routing config
 Create file config.yaml like:
 
-    tunnel: <NAME>
+``` tunnel: &lt;NAME&gt;
     credentials-file: /etc/cloudflared/XXXXXXXXXXX.json
 
     ingress:
@@ -55,17 +55,18 @@ Create file config.yaml like:
         originRequest:
         originServerName: example.com
     - service: http_status:404
+```
 
 ### Docker compose
-    services:
-        cloudflare-tunnel:
-            restart: unless-stopped
-            image: docker.io/cloudflare/cloudflared:2025.5.0
-            container_name: cloudflare-tunnel
-            hostname: ${<NAME>}-cloudflare-tunnel
-            labels:
-            diun.enable: true
-            diun.watch_repos: true
-            command: tunnel --no-autoupdate run
-            volumes:
-            - /${DOCKER_DATA_DIRECTORY:-Volume Path Required}/docker/docker-data/${<NAME>:-Name Path Required}/cloudflared/:/etc/cloudflared
+``` services:
+    cloudflare-tunnel:
+        restart: unless-stopped
+        image: docker.io/cloudflare/cloudflared:2025.5.0
+        container_name: cloudflare-tunnel
+        hostname: ${<NAME>}-cloudflare-tunnel
+        labels:
+        diun.enable: true
+        diun.watch_repos: true
+        command: tunnel --no-autoupdate run
+        volumes:
+        - /${DOCKER_DATA_DIRECTORY:-Volume Path Required}/docker/docker-data/${<NAME>:-Name Path Required}/cloudflared/:/etc/cloudflared```

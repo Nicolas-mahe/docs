@@ -51,13 +51,13 @@ add a crontab: `sudo crontab -e` and fill with : *0 2 \* \* \* certbot renew --q
 
 in `/etc/gitlab/gitlab.rb` look for 
 - *nginx['ssl_certificate']* & *nginx['ssl_certificate_key']* and file them with:
-    - nginx['ssl_certificate'] = "/etc/letsencrypt/live/#{node['fqdn']}/fullchain.pem"
-    - nginx['ssl_certificate_key'] = "/etc/letsencrypt/live/#{node['fqdn']}/privkey.pem"
+    - `nginx['ssl_certificate'] = "/etc/letsencrypt/live/#{node['fqdn']}/fullchain.pem"`
+    - `nginx['ssl_certificate_key'] = "/etc/letsencrypt/live/#{node['fqdn']}/privkey.pem"`
 - lab_rails['trusted_proxies'] and fill value with proxy IP/hostname
 
 ### Mail sender
 in `/etc/gitlab/gitlab.rb` look for :
-
+```
 gitlab_rails['smtp_enable'] = true
 
 gitlab_rails['smtp_address'] = "mail.\<MAILSERVER_PUBLIC_HOSTNAME>"
@@ -77,7 +77,7 @@ gitlab_rails['smtp_enable_starttls_auto'] = false
 gitlab_rails['smtp_tls'] = true
 
 gitlab_rails['smtp_pool'] = true
-
+```
 
 ## Start GitLab
 
