@@ -8,11 +8,17 @@ services:
       traefik.enable: true
       traefik.http.routers.docusaurus.tls: true
       traefik.http.routers.docusaurus.tls.certresolver: cloudflare
-      traefik.http.routers.docusaurus.middlewares: authelia@docker,web-utils@docker
+      traefik.http.routers.docusaurus.middlewares: authelia@docker,sablier-docusaurus@docker,web-utils@docker
       traefik.http.routers.docusaurus.entrypoints: websecure
       traefik.http.routers.docusaurus.rule: Host(`docs.${PERSONAL_DOMAIN_NAME}`)
       traefik.http.routers.docusaurus.service: docusaurus
       traefik.http.services.docusaurus.loadBalancer.server.port: 80
+      #sablier
+      sablier.enable: true
+      sablier.group: docusaurus
+      traefik.docker.allownonrunning: true
+      traefik.http.middlewares.sablier-docusaurus.plugin.sablier.group: docusaurus
+      traefik.http.middlewares.sablier-docusaurus.plugin.sablier.dynamic.displayName: docusaurus
     environment:
       TZ: Europe/Paris
     networks:
